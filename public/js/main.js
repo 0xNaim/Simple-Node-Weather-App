@@ -16,7 +16,7 @@ weatherLocation.addEventListener('submit', (e) => {
   if (search.value.length === 0) {
     alert('Please provide a valid location');
   } else {
-    fetch(`http://localhost:3000/weather?address=${search.value}`)
+    fetch(`/weather?address=${search.value}`)
       .then((res) => res.json())
       .then((data) => {
         txt1.innerText = `Address: ${data.location}`;
