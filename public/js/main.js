@@ -1,6 +1,3 @@
-console.log('Client side javascript file loaded!');
-console.log('Current year:', new Date().getFullYear());
-
 const weatherLocation = document.querySelector('form');
 let search = document.querySelector('input');
 let txt1 = document.getElementById('txt-1');

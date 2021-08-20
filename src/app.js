@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.render('index', {
     title: 'Weather App',
     name: 'Naim',
-    heading: 'Simple Weather App',
+    heading: 'Weather App',
   });
 });
 
@@ -59,16 +59,16 @@ app.get('/weather', (req, res) => {
       return res.send({ error });
     }
 
-    forecast(data.address, (error2, forecastData) => {
-      if (error2) {
-        return res.send({ error2 });
-      } else {
-        res.send({
-          forecast: forecastData,
-          location: data.location,
-          address: req.query.address,
-        });
+    forecast(data.address, (error, forecastData) => {
+      if (error) {
+        return res.send({ error });
       }
+
+      res.send({
+        forecast: forecastData,
+        location: data.location,
+        address: req.query.address,
+      });
     });
   });
 });
