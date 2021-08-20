@@ -7,9 +7,15 @@ const geocode = (address, callback) => {
 
   request({ url, json: true }, (error, data) => {
     if (error) {
-      callback('Error: Unable to connect weather services!', null);
+      callback(
+        'Unable to connect weather services. Please check your internet connection!',
+        null
+      );
     } else if (data.body.features.length === 0) {
-      callback('Error: Unable to find location!', null);
+      callback(
+        'Unable to find location. Please provide a location valid location!',
+        null
+      );
     } else {
       callback(null, {
         latitude: data.body.features[0].center[1],
